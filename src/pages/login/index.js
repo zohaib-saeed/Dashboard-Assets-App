@@ -1,11 +1,12 @@
 import React from "react";
+import Login from "../../components/Login/Index";
 
-import Login from "../components/Login/Index";
-
-export default function Home() {
+const Index = () => {
   return (
     <React.Fragment>
       <Login />
     </React.Fragment>
   );
-}
+};
+
+export default Index;

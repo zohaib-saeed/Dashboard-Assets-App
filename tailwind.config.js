@@ -21,8 +21,12 @@ module.exports = {
       cadetGrey: "#89A6C0",
       balticSea: "#282828",
       dustyGrey: "#969696",
+      mirage: "#1E1E1E",
+      onyx: "#111111",
+      red: "#FF0000",
     },
     screens: {
+      xxs: "390px",
       xs: "480px",
       sm: "640px",
       md: "768px",
@@ -30,6 +34,10 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       xxl: "1350px",
+    },
+    fontFamily: {
+      lato: ["Lato", "sans-serif"],
+      poppins: ["Poppins", "sans-serif"],
     },
     extend: {},
   },
