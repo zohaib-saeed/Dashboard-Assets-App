@@ -11,3 +11,85 @@
 body {
   font-family: "Poppins", "sans-serif";
 }
+
+/* Hide scrollbar arrow */
+.white-scrollbar ::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Set scrollbar width */
+.white-scrollbar ::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Set scrollbar track color */
+.white-scrollbar ::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+/* Set scrollbar thumb color */
+.white-scrollbar ::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Hide Scrollbar in the right drawer  */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Topbar Dropdown  */
+.dropdown {
+  display: flex;
+}
+
+.rotate-chevron-up {
+  animation-name: rotate180;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.rotate-chevron-down {
+  animation-name: rotate180;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
