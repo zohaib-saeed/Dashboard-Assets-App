@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
-import {
-  ChevronRightIcon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 // import component 👇
 import Drawer from "react-modern-drawer";
