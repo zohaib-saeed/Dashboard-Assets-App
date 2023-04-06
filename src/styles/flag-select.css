@@ -1,0 +1,30 @@
+.ReactFlagsSelect-module_selectBtn__19wW7 {
+  border-radius: 8px !important;
+  border: 2px solid #969696 !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 10px 12px !important;
+}
+
+.ReactFlagsSelect-module_selectBtn__19wW7[aria-expanded="false"]:after {
+  border-top: 5px solid #fff !important;
+}
+
+.ReactFlagsSelect-module_selectBtn__19wW7[aria-expanded="true"]:after {
+  border-bottom: 5px solid #fff !important;
+}
+
+.ReactFlagsSelect-module_selectOptions__3LNBJ {
+  color: white !important;
+  background-color: #111111 !important;
+  border-radius: 9px !important;
+  border: 2px solid #969696 !important;
+}
+
+.ReactFlagsSelect-module_flagsSelect__2pfa2 ul ::-webkit-scrollbar-thumb {
+  background: white !important;
+}
+.ReactFlagsSelect-module_flagsSelect__2pfa2 ul ::-webkit-scrollbar-track {
+  background: white !important;
+}

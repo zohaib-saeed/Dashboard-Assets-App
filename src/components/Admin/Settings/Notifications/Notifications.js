@@ -182,7 +182,7 @@ const Notifications = () => {
             </div>
           </div>
         </div>
-        <button className="text-white border-2 border-solid border-white text-sm font-medium bg-opacity-0 rounded-full px-6 md:px-8 py-3 md:py-4">
+        <button className="text-white border-2 border-solid border-white text-sm font-medium bg-opacity-0 rounded-full px-6 md:px-8 py-3 hover:bg-white hover:bg-opacity-10 transition-all duration-300">
           Save Changes
         </button>
       </div>

@@ -17,12 +17,12 @@ const Members = () => {
             <p className="text-[13px] mdl:text-sm font-normal text-dustyGrey">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
             </p>
-            <button className="text-white border-2 border-solid border-white text-[15px] sm:text-sm font-medium bg-opacity-0 rounded-full px-6 py-3 mt-1">
+            <button className="text-white border-2 border-solid border-white text-[15px] sm:text-sm font-medium bg-opacity-0 rounded-full px-6 py-3 mt-1 hover:bg-white hover:bg-opacity-10 transition-all duration-300">
               Invite an administrator
             </button>
           </div>
           {/* Col 2  */}
-          <div className="w-full flex flex-col items-start justify-start gap-3 overflow-x-scroll">
+          <div className="w-full flex flex-col items-start justify-start gap-3 overflow-x-scroll hide-scrollbar">
             <div className="w-full grid grid-cols-[0.8fr_0.5fr_0.5fr_0.2fr] gap-4 px-3 min-w-[530px] vsm:min-w-none ">
               <div className="font-medium text-xs text-dustyGrey">NAME</div>
               <div className="font-medium text-xs text-dustyGrey">
@@ -78,8 +78,8 @@ const Members = () => {
             </p>
           </div>
           {/* Col 2  */}
-          <div className="w-full flex flex-col items-start justify-start gap-3  overflow-x-scroll">
-            <div className="w-full grid grid-cols-[0.8fr_0.4fr_0.6fr_0.2fr] gap-4 px-3 min-w-[530px] vsm:min-w-none overflow-x-scroll">
+          <div className="w-full flex flex-col items-start justify-start gap-3 hide-scrollbar  overflow-x-scroll">
+            <div className="w-full grid grid-cols-[0.8fr_0.4fr_0.6fr_0.2fr] gap-4 px-3 min-w-[530px] vsm:min-w-none hide-scrollbar overflow-x-scroll">
               <div className="font-medium text-xs text-dustyGrey">NAME</div>
               <div className="font-medium text-xs text-dustyGrey">
                 Date Added
@@ -87,7 +87,7 @@ const Members = () => {
               <div></div>
               <div></div>
             </div>
-            <div className="w-full flex flex-col items-start justify-start gap-3 min-w-[530px] vsm:min-w-none overflow-x-scroll">
+            <div className="w-full flex flex-col items-start justify-start gap-3 min-w-[530px] vsm:min-w-none hide-scrollbar overflow-x-scroll">
               {[0, 1, 2, 3].map((item, index) => (
                 <div
                   key={index}

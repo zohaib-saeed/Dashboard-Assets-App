@@ -28,10 +28,7 @@ const Topbar = ({ view, setView }) => {
         {/*=> Left  */}
         <div className=" flex items-end justify-start gap-7">
           {/* User name + avatar + nav dropdown button*/}
-          <div
-            ref={dropdownRef}
-            className="relative flex items-center justify-between gap-16 bg-mirage rounded-2xl p-2"
-          >
+          <div className="relative flex items-center justify-between gap-16 bg-mirage rounded-2xl p-2">
             <div className="flex items-center justify-start gap-[10px]">
               <div className="w-[55px] h-[55px] flex items-center justify-center relative bg-iceberg rounded-full overflow-hidden text-[25px] text-black font-medium">
                 JD
@@ -51,16 +48,20 @@ const Topbar = ({ view, setView }) => {
               {!showDropdown ? (
                 <ChevronDownIcon
                   onClick={toggleDropdown}
-                  className={`rotate-chevron-down w-[20px] h-[20px] text-white transition-all duration-150 `}
+                  className={` w-[20px] h-[20px] text-white transition-all duration-150 `}
                 />
               ) : (
                 <ChevronUpIcon
                   onClick={toggleDropdown}
-                  className={`rotate-chevron-up w-[20px] h-[20px] text-white transition-all duration-150 `}
+                  className={` w-[20px] h-[20px] text-white transition-all duration-150 `}
                 />
               )}
             </div>
-            <Dropdown showDropdown={showDropdown} />
+            <Dropdown
+              showDropdown={showDropdown}
+              view={view}
+              setView={setView}
+            />
           </div>
           {/* Tabs  */}
           <div className="flex items-end justify-start gap-4">
