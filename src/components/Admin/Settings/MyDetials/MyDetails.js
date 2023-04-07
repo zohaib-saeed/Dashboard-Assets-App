@@ -19,7 +19,7 @@ const MyDetails = () => {
             <div className="font-medium text-xs text-dustyGrey">FIRST NAME</div>
             <input
               placeholder="Best"
-              className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-dustyGrey text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
+              className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-white text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
             />
           </div>
           {/* Last Name  */}
@@ -27,7 +27,7 @@ const MyDetails = () => {
             <div className="font-medium text-xs text-dustyGrey">LAST NAME</div>
             <input
               placeholder="Kotek"
-              className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-dustyGrey text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
+              className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-white text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
             />
           </div>
         </div>
@@ -49,7 +49,7 @@ const MyDetails = () => {
             <div className="font-medium text-xs text-dustyGrey">EMAIL</div>
             <input
               placeholder="best@kotek.com"
-              className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-dustyGrey text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
+              className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-white text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
             />
           </div>
         </div>

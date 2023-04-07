@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const Index = () => {
+  const router = useRouter();
+  const codeVerificationHandler = () => {
+    router.push("/admin");
+  };
+
   return (
     <div className="w-screen h-screen min-h-[700px] flex flex-col items-center justify-center bg-[url('/images/auth-bg.png')] bg-center bg-cover bg-no-repeat">
       <div className="w-full max-w-[1350px] flex items-center lg:items-end justify-center flex-col px-5 xxs:px-8 xs:px-12 py-4 ">
@@ -26,7 +32,10 @@ const Index = () => {
           />
           <div className="w-full flex items-center justify-end mt-2">
             {/* Chevron => On click, moves user to the code verification */}
-            <div className="w-[40px] xs:w-[50px] md:w-[60px] h-[40px] xs:h-[50px] md:h-[60px] flex items-center justify-center bg-iceberg rounded-full cursor-pointer">
+            <div
+              onClick={codeVerificationHandler}
+              className="w-[40px] xs:w-[50px] md:w-[60px] h-[40px] xs:h-[50px] md:h-[60px] flex items-center justify-center bg-iceberg rounded-full cursor-pointer"
+            >
               <ChevronRightIcon className="w-[17px] xs:w-[20px] md:w-[25px] h-[17px] xs:h-[20px] md:h-[25px] text-black " />
             </div>
           </div>

@@ -8,15 +8,11 @@ import {
   PlusIcon,
 } from "@heroicons/react/24/outline";
 import Dropdown from "./Dropdown";
-import { useClickOutside } from "@/hooks/useClickOutside";
-import Sidebar from "@/components/User/Layout/Sidebar";
+import MenuDrawer from "./MenuDrawer";
 
 const Topbar = ({ view, setView }) => {
   const [showDropdown, setShowDropdown] = useState(false);
-
-  const dropdownRef = useClickOutside(() => {
-    setShowDropdown(false);
-  });
+  const [openMenuDrawer, setOpenMenuDrawer] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown((prevState) => !prevState);
@@ -61,6 +57,7 @@ const Topbar = ({ view, setView }) => {
               showDropdown={showDropdown}
               view={view}
               setView={setView}
+              setShowDropdown={setShowDropdown}
             />
           </div>
           {/* Tabs  */}
@@ -118,10 +115,7 @@ const Topbar = ({ view, setView }) => {
       {/* Top bar => Small screens (Below 900px) */}
       <div className="w-full pt-1 xs:pt-2 flex items-center justify-between mdl:hidden">
         {/* User name + avatar + nav dropdown button*/}
-        <div
-          ref={dropdownRef}
-          className=" relative flex  items-center justify-between gap-10 xs:gap-16 bg-mirage rounded-xl p-2"
-        >
+        <div className=" relative flex  items-center justify-between gap-10 xs:gap-16 bg-mirage rounded-xl p-2">
           <div className="flex items-center justify-start gap-[10px]">
             <div className="w-[45px] h-[45px] flex items-center justify-center relative bg-iceberg rounded-full overflow-hidden text-[20px] text-black font-medium">
               JD
@@ -144,7 +138,14 @@ const Topbar = ({ view, setView }) => {
             />
           </div>
           {/* Dropdown */}
-          {showDropdown && <Dropdown />}
+          {showDropdown && (
+            <Dropdown
+              showDropdown={showDropdown}
+              view={view}
+              setView={setView}
+              setShowDropdown={setShowDropdown}
+            />
+          )}
         </div>
         {/* => Right  */}
         <div className="flex justify-end items-center gap-2 xs:gap-3">
@@ -154,11 +155,18 @@ const Topbar = ({ view, setView }) => {
           <BellIcon className="w-[21px] h-[21px] text-white cursor-pointer" />
           {/* Menu Icon */}
           <Bars3Icon
-            onClick={() => setOpenDrawer(true)}
+            onClick={() => setOpenMenuDrawer(true)}
             className="w-[26px] h-[26px] text-white cursor-pointer"
           />
         </div>
       </div>
+      {/* Nav menu drawer  */}
+      <MenuDrawer
+        openMenuDrawer={openMenuDrawer}
+        setOpenMenuDrawer={setOpenMenuDrawer}
+        view={view}
+        setView={setView}
+      />
     </React.Fragment>
   );
 };

@@ -1,7 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 
-const Dropdown = ({ showDropdown, view, setView }) => {
+const Dropdown = ({ showDropdown, view, setView, setShowDropdown }) => {
+  const settingViewHandler = () => {
+    setView("settings");
+    setShowDropdown(false);
+  };
   return (
     <div
       className={`${
@@ -19,7 +23,7 @@ const Dropdown = ({ showDropdown, view, setView }) => {
       </div>
       <div className="w-full h-[1px] bg-dustyGrey rounded-full my-[2px]"></div>
       <div
-        onClick={() => setView("settings")}
+        onClick={settingViewHandler}
         className="flex items-center justify-start gap-3 cursor-pointer"
       >
         <Cog6ToothIcon className="text-white w-[24px] h-[24px]" />

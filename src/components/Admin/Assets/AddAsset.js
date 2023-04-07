@@ -25,7 +25,10 @@ const AddAsset = ({ view, setView }) => {
     >
       <div className="flex flex-col items-center justify-start gap-2 sm:gap-3 lg:gap-4 p-2 xs:p-3 lg:p-5 bg-onyx ">
         <div className="w-full flex items-center justify-start gap-4">
-          <ChevronDoubleRightIcon className="w-[20px] lg:w-[24px] h-[20px] lg:h-[24px] text-white cursor-pointer" />
+          <ChevronDoubleRightIcon
+            onClick={closeDrawerHandler}
+            className="w-[20px] lg:w-[24px] h-[20px] lg:h-[24px] text-white cursor-pointer"
+          />
           <svg
             viewBox="0 0 18 18"
             fill="none"
