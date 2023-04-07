@@ -28,3 +28,13 @@
 .ReactFlagsSelect-module_flagsSelect__2pfa2 ul ::-webkit-scrollbar-track {
   background: white !important;
 }
+
+.ReactFlagsSelect-module_selectOption__3pcgW:hover {
+  color: black !important;
+  font-weight: 500 !important;
+  background-color: #d8f3dc !important;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none !important;
+}

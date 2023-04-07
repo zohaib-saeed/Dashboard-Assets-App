@@ -160,7 +160,7 @@ const AddPaymentMethod = () => {
             className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
           /> */}
           <ReactFlagsSelect
-            className="!font-poppins !bg-onyx !text-white"
+            className="!font-poppins !bg-onyx !text-white scrollbar-hidden"
             countries={["US", "GB", "FR", "DE", "IT"]}
             selected={selected}
             onSelect={(code) => setSelected(code)}
