@@ -105,3 +105,11 @@ body {
   border-radius: 99px;
   transition: all 0.3s ease;
 }
+
+.grabbing-area {
+  cursor: grab;
+}
+
+.grabbing-area:active {
+  cursor: grabbing;
+}
