@@ -76,7 +76,7 @@ const FavouriteAssets = () => {
       }`}
       onTouchStart={(e) => e.preventDefault()}
     >
-      <div className="lg:min-w-[280px] flex flex-col items-start justify-end gap-1 mdl:gap-3 lg:gap-5">
+      <div className="sticky top-0 left-0 lg:relative lg:min-w-[280px] flex flex-col items-start justify-end gap-1 mdl:gap-3 lg:gap-5">
         <h2 className="text-white font-medium text-[20px] mdl:text-[25px] ">
           Favourite assets
         </h2>
