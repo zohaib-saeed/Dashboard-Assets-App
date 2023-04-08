@@ -1,80 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { HeartIcon } from "@heroicons/react/24/solid";
 
-function useDragging(ref) {
-  const [isDragging, setDragging] = useState(false);
-  const [startX, setStartX] = useState(null);
-  const [scrollLeft, setScrollLeft] = useState(null);
-
-  useEffect(() => {
-    const handleMouseDown = (event) => {
-      if (!ref.current.contains(event.target)) return;
-
-      setDragging(true);
-      setStartX(event.pageX);
-      setScrollLeft(ref.current.scrollLeft);
-    };
-
-    const handleMouseMove = (event) => {
-      if (!isDragging) return;
-      event.preventDefault();
-      const walk = (event.pageX - startX) * 3;
-      ref.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleMouseUp = () => {
-      setDragging(false);
-    };
-
-    const handleTouchStart = (event) => {
-      if (!ref.current.contains(event.target)) return;
-
-      setDragging(true);
-      setStartX(event.touches[0].pageX);
-      setScrollLeft(ref.current.scrollLeft);
-    };
-
-    const handleTouchMove = (event) => {
-      if (!isDragging) return;
-      event.preventDefault();
-      const walk = (event.touches[0].pageX - startX) * 3;
-      ref.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleTouchEnd = () => {
-      setDragging(false);
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("touchmove", handleTouchMove, { passive: false });
-    document.addEventListener("touchend", handleTouchEnd);
-    ref.current.addEventListener("mousedown", handleMouseDown);
-    ref.current.addEventListener("touchstart", handleTouchStart);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
-      ref.current.removeEventListener("mousedown", handleMouseDown);
-      ref.current.removeEventListener("touchstart", handleTouchStart);
-    };
-  }, [isDragging, startX, scrollLeft, ref]);
-
-  return { isDragging };
-}
-
 const FavouriteAssets = () => {
-  const containerRef = useRef(null);
-  const { isDragging } = useDragging(containerRef);
   return (
     <div
-      ref={containerRef}
-      className={`w-full gap-5 rounded-2xl p-3 lg:p-5 overflow-x-hidden flex flex-col lg:flex-row items-start lg:items-end justify-start bg-mirage grabbing-area ${
-        isDragging ? "grabbing" : "grab"
-      }`}
-      onTouchStart={(e) => e.preventDefault()}
+      className={`w-full gap-5 rounded-2xl p-3 lg:p-5 overflow-x-hidden flex flex-col lg:flex-row items-start lg:items-end justify-start bg-mirage `}
     >
       <div className="sticky top-0 left-0 lg:relative lg:min-w-[280px] flex flex-col items-start justify-end gap-1 mdl:gap-3 lg:gap-5">
         <h2 className="text-white font-medium text-[20px] mdl:text-[25px] ">
