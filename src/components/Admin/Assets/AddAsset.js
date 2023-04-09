@@ -5,6 +5,7 @@ import Drawer from "react-modern-drawer";
 
 //import styles 👇
 import "react-modern-drawer/dist/index.css";
+import Image from "next/image";
 
 const AddAsset = ({ view, setView }) => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -14,6 +15,19 @@ const AddAsset = ({ view, setView }) => {
 
   const closeDrawerHandler = () => {
     setView("dashboard");
+  };
+
+  const [assetInfo, setAssetInfo] = useState({
+    name: "",
+    imeiNumber: "",
+    pointOfInterestName: "",
+  });
+
+  const handleInputChange = (identifier, event) => {
+    setAssetInfo({
+      ...assetInfo,
+      [identifier]: event.target.value,
+    });
   };
 
   return (
@@ -29,20 +43,14 @@ const AddAsset = ({ view, setView }) => {
             onClick={closeDrawerHandler}
             className="w-[20px] lg:w-[24px] h-[20px] lg:h-[24px] text-white cursor-pointer"
           />
-          <svg
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="cursor-pointer w-[15px] mdl:w-[17px] h-[15px] mdl:h-[17px] "
-          >
-            <path
-              d="M0.75 0.75V5.25M0.75 0.75H5.25M0.75 0.75L6 6M17.25 17.25H12.75M17.25 17.25V12.75M17.25 17.25L12 12"
-              stroke="white"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+          <div className="w-[17px] h-[17px] flex items-center justify-center relative cursor-pointer">
+            <Image
+              src="/icons/expand.svg"
+              alt=""
+              fill
+              className="object-contain"
             />
-          </svg>
+          </div>
         </div>
         <div className="w-full   flex flex-col items-center justify-start gap-7  p-3">
           {/* Add asset heading + phrase  */}
@@ -62,14 +70,18 @@ const AddAsset = ({ view, setView }) => {
             {/* Assets  */}
             <div className="w-full flex flex-col items-center justify-start gap-3 ">
               <input
+                onChange={(e) => handleInputChange("name", e)}
                 placeholder="Add asset name"
                 className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-dustyGrey text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
               />
               <input
+                onChange={(e) => handleInputChange("imeiNumber", e)}
                 placeholder="Add IMEI number"
                 className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-dustyGrey text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
               />
               <input
+                value={assetInfo.pointOfInterestName}
+                onChange={(e) => handleInputChange("pointOfInterestName", e)}
                 placeholder="Name point of interest"
                 className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-dustyGrey text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
               />

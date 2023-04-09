@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   ArrowsPointingOutIcon,
   ChevronLeftIcon,
@@ -44,23 +45,17 @@ const AssetPage = ({ isOpen, setIsOpen }) => {
               onClick={toggleDrawer}
               className="w-[20px] lg:w-[24px] h-[20px] lg:h-[24px] text-white cursor-pointer"
             />
-            <svg
+            <div
               onClick={() => setExpandPage(true)}
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={
-                "cursor-pointer w-[15px] mdl:w-[17px] h-[15px] mdl:h-[17px] hidden lg:flex"
-              }
+              className="w-[17px] h-[17px] flex items-center justify-center relative cursor-pointer"
             >
-              <path
-                d="M0.75 0.75V5.25M0.75 0.75H5.25M0.75 0.75L6 6M17.25 17.25H12.75M17.25 17.25V12.75M17.25 17.25L12 12"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+              <Image
+                src="/icons/expand.svg"
+                alt=""
+                fill
+                className="object-contain"
               />
-            </svg>
+            </div>
           </div>
         )}
         {/* Map  */}

@@ -4,7 +4,42 @@ import { EnvelopeIcon, PlusIcon } from "@heroicons/react/24/outline";
 import ReactFlagsSelect from "react-flags-select";
 
 const AddPaymentMethod = () => {
-  const [selected, setSelected] = useState("");
+  // Country Input State
+  const [country, setCountry] = useState("");
+  // Email Input State
+  const [emails, setEmails] = useState([""]);
+
+  // States to manage all the inputs except email and country input
+  const [paymentMethodInfo, setPaymanetMethodInfo] = useState({
+    nameOnCard: "",
+    expiryDate: "",
+    cardNumber: "",
+    cvv: "",
+    street: "",
+    city: "",
+    state: "",
+    province: "",
+  });
+
+  // Handlers to get all the input values except email and country
+  const handleInputChange = (identifier, event) => {
+    setPaymanetMethodInfo({
+      ...paymentMethodInfo,
+      [identifier]: event.target.value,
+    });
+  };
+
+  // Email input handler
+  function handleEmailChange(index, value) {
+    const newEmails = [...emails];
+    newEmails[index] = value;
+    setEmails(newEmails);
+  }
+  // Add email input handler
+  function handleAddEmail() {
+    setEmails([...emails, ""]);
+  }
+
   return (
     <div className="w-full flex flex-col items-start justify-start gap-7 md:gap-9 lg:gap-12 pb-32">
       <h3 className="text-white  font-medium text-[22px] md:text-[25px]">
@@ -28,6 +63,7 @@ const AddPaymentMethod = () => {
                 <input
                   type="text"
                   placeholder="Best Kotek"
+                  onChange={(e) => handleInputChange("nameOnCard", e)}
                   className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
                 />
               </div>
@@ -39,6 +75,7 @@ const AddPaymentMethod = () => {
                 <input
                   type="text"
                   placeholder="01/02"
+                  onChange={(e) => handleInputChange("expiryDate", e)}
                   className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
                 />
               </div>
@@ -62,6 +99,7 @@ const AddPaymentMethod = () => {
                   <input
                     type="text"
                     placeholder="1234 1234 1234 1234"
+                    onChange={(e) => handleInputChange("cardNumber", e)}
                     className="w-full text-sm text-white font-medium  py-[14px]  focus:outline-none bg-onyx placeholder:text-white"
                   />
                 </div>
@@ -74,6 +112,7 @@ const AddPaymentMethod = () => {
                 <input
                   type="text"
                   placeholder="***"
+                  onChange={(e) => handleInputChange("cvv", e)}
                   className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
                 />
               </div>
@@ -91,15 +130,24 @@ const AddPaymentMethod = () => {
           </div>
           {/* Col 2  */}
           <div className="w-full flex flex-col items-start justify-start gap-3">
-            <div className="px-4 w-full flex items-center justify-start gap-2 border-dustyGrey border-2 border-solid outline-none rounded-lg ">
-              <EnvelopeIcon className="text-white w-[24px] h-[24px] " />
-              <input
-                type="email"
-                placeholder="best@kotek.com"
-                className="w-full text-sm text-white font-medium  py-[14px]  focus:outline-none bg-onyx placeholder:text-white"
-              />
-            </div>
-            <div className="w-full flex items-center justify-start gap-1 cursor-pointer">
+            {emails.map((email, index) => (
+              <div
+                key={index}
+                className="px-4 w-full flex items-center justify-start gap-2 border-dustyGrey border-2 border-solid outline-none rounded-lg "
+              >
+                <EnvelopeIcon className="text-white w-[24px] h-[24px] " />
+                <input
+                  type="email"
+                  placeholder="best@kotek.com"
+                  onChange={(e) => handleEmailChange(index, e.target.value)}
+                  className="w-full text-sm text-white font-medium  py-[14px]  focus:outline-none bg-onyx placeholder:text-white"
+                />
+              </div>
+            ))}
+            <div
+              onClick={handleAddEmail}
+              className=" flex items-center justify-start gap-1 cursor-pointer"
+            >
               <PlusIcon className="w-[20px] h-[20px] text-dustyGrey" />
               <p className="text-dustyGrey text-sm font-medium">Add another</p>
             </div>
@@ -115,6 +163,7 @@ const AddPaymentMethod = () => {
           <input
             type="text"
             placeholder="123 Street Name"
+            onChange={(e) => handleInputChange("street", e)}
             className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
           />
         </div>
@@ -126,6 +175,7 @@ const AddPaymentMethod = () => {
           <input
             type="text"
             placeholder="City"
+            onChange={(e) => handleInputChange("city", e)}
             className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
           />
         </div>
@@ -140,11 +190,13 @@ const AddPaymentMethod = () => {
             <input
               type="text"
               placeholder="State"
+              onChange={(e) => handleInputChange("state", e)}
               className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
             />
             <input
               type="text"
               placeholder="Province"
+              onChange={(e) => handleInputChange("province", e)}
               className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
             />
           </div>
@@ -154,16 +206,11 @@ const AddPaymentMethod = () => {
           {/* Col 1 */}
           <div className="text-white text-[15px] font-medium">Country</div>
           {/* Col 2  */}
-          {/* <input
-            type="text"
-            placeholder="City"
-            className="w-full text-sm text-white font-medium px-4 py-[14px] border-dustyGrey border-2 border-solid outline-none focus:outline-none bg-onyx rounded-lg placeholder:text-white"
-          /> */}
           <ReactFlagsSelect
             className="!font-poppins !bg-onyx !text-white scrollbar-hidden"
             countries={["US", "GB", "FR", "DE", "IT"]}
-            selected={selected}
-            onSelect={(code) => setSelected(code)}
+            selected={country}
+            onSelect={(code) => setCountry(code)}
             placeholder="Country"
           />
           ;

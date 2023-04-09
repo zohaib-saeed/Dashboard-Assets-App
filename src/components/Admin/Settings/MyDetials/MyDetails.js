@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 const MyDetails = () => {
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  const handleInputChange = (identifier, e) => {
+    setPersonalInfo({
+      ...personalInfo,
+      [identifier]: e.target.value,
+    });
+    console.log(personalInfo.firstName);
+  };
   return (
     <div className="w-full flex flex-col items-start justify-start ">
       <h2 className="text-white font-medium text-[20px] sm:text-[22px] lg:text-[25px] mb-5 sm:mb-6 mdl:mb-9">
@@ -18,7 +31,9 @@ const MyDetails = () => {
           <div className="w-full flex flex-col items-start justify-start gap-[4px]">
             <div className="font-medium text-xs text-dustyGrey">FIRST NAME</div>
             <input
+              type="text"
               placeholder="Best"
+              onChange={(e) => handleInputChange("firstName", e)}
               className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-white text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
             />
           </div>
@@ -26,7 +41,9 @@ const MyDetails = () => {
           <div className="w-full flex flex-col items-start justify-start gap-[4px]">
             <div className="font-medium text-xs text-dustyGrey">LAST NAME</div>
             <input
+              type="text"
               placeholder="Kotek"
+              onChange={(e) => handleInputChange("lastName", e)}
               className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-white text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
             />
           </div>
@@ -49,6 +66,8 @@ const MyDetails = () => {
             <div className="font-medium text-xs text-dustyGrey">EMAIL</div>
             <input
               placeholder="best@kotek.com"
+              type="email"
+              onChange={(e) => handleInputChange("email", e)}
               className="w-full py-3 mdl:py-4 px-3 sm:px-4 bg-mirage placeholder:text-white text-dustyGrey text-sm focus:border-none focus:outline-none font-medium rounded-md "
             />
           </div>
