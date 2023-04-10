@@ -28,7 +28,7 @@ const AssetPage = ({ isOpen, setIsOpen }) => {
       direction="right"
       className={`hide-scrollbar h-screen !w-full  ${
         expandPage
-          ? "sm:!w-full "
+          ? "sm:!w-[95%] "
           : "sm:!w-[500px]  lg:!w-[600px] rounded-lg lg:rounded-xl"
       } pb-[85px] xs:pb-[90px] sm:pb-[95px] mdl:pb-[100px] mt-[85px] xs:mt-[90px] sm:mt-[95px] mdl:mt-[100px] !bg-onyx  overflow-y-scroll`}
     >
@@ -61,8 +61,8 @@ const AssetPage = ({ isOpen, setIsOpen }) => {
         {/* Map  */}
         <div
           className={`${
-            expandPage && "order-last sticky top-0"
-          } w-full h-[250px] bg-iceberg`}
+            expandPage ? "order-last sticky top-0 h-full" : "h-[250px]"
+          } w-full bg-iceberg`}
         ></div>
         <div className="w-full flex flex-col items-center justify-start gap-4 sm:gap-4 lg:gap-5 ">
           {expandPage && (
