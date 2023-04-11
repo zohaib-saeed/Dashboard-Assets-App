@@ -47,7 +47,7 @@ const AssetPage = ({ isOpen, setIsOpen }) => {
             />
             <div
               onClick={() => setExpandPage(true)}
-              className="w-[17px] h-[17px] flex items-center justify-center relative cursor-pointer"
+              className="w-[17px] h-[17px] hidden lg:flex items-center justify-center relative cursor-pointer"
             >
               <Image
                 src="/icons/expand.svg"
